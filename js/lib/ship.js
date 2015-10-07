@@ -38,7 +38,7 @@ ship.prototype = {
 	'w'				: null,
 	'h'				: null,
 	'shipShoots'	: [],
-	'timeShoot'		: 100,
+	'timeShoot'		: 1000,
 	'lastShoot'		: 0,
 	'speed'			: 3,
 	'file'			: 'images/ship.png',

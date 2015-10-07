@@ -68,7 +68,7 @@ collisions.prototype = {
 
 		this.c.cc.font = "Bold 90px Arial";
 
-		this.c.cc.fillText("GANASTE", 190, 290);
+		this.c.cc.fillText("GANASTE", 190, 310);
 
 		this.c.cc.restore();
 
