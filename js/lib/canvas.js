@@ -22,13 +22,20 @@ createCanvas.prototype = {
 	'e'				: null,
 	'c' 			: null,
 	'cc'			: null,
-	'frames' 		: 30,
+	'frames' 		: 40,
 	'keyPressed'	: [],
 	'fnRender'		: [],
 	'keySeted'		: {},
 	'attach'		: function(  id , fn , el ){
 
 		this.fnRender[id] = {'fn':fn,'el':el};
+	},
+	'unattach'		: function ( UUID ){
+
+		if( this.fnRender[UUID] ){
+
+			delete this.fnRender[UUID]; 
+		}
 	},
 	'_render'		: function(){
 
@@ -38,7 +45,7 @@ createCanvas.prototype = {
 
 				var fn = this.keySeted[i];
 
-				fn.fn( fn.el );
+				fn.fn( fn.el , i );
 			}
 		}
 
