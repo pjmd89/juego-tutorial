@@ -1,4 +1,4 @@
-function background( c ){
+function background( c , fn ){
 
 	var that = this;
 
@@ -9,14 +9,19 @@ function background( c ){
 	this.img.src = this.file;
 
 	this.img.onload = function(){ 
-		
+
+		that.isLoaded = true;
+
 		that.imageLoaded(); 
+
+		fn();
 	};
 }
 
 background.prototype = {
 	'c'				: null,
 	'img'			: null,
+	'isLoaded'		: false,
 	'file'			: 'images/espacio.jpg',
 	'imageLoaded'	: function( ){
 

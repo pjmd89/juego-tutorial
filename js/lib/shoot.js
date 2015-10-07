@@ -43,8 +43,6 @@ shoot.prototype = {
 	'draw'			: function( el ){
 
 		el.c.cc.save();
-		
-		el.findColission( el , el.ship.enemies );
 
 		el.position();
 
@@ -56,27 +54,6 @@ shoot.prototype = {
 
 		el.isVisible();
 
-	},
-	'findColission' : function( el, enemies ){
-
-		for(var i in enemies){
-
-			var en = enemies[i].getPosition();
-			
-			var l1 = el.x , r1 = el.x + el.w , t1 = el.y , b1 = el.y + el.h;
-
-			var l2 = en.x , r2 = en.x + en.w , t2 = en.y , b2 = en.y + en.h;
-
-			if(l1 < r2 && r1 > l2 && t1 < b2 && b1 > t2){
-
-				el._destroy();
-
-				enemies[i]._destroy();
-
-				delete enemies[i];
-			}
-
-		}
 	},
 	'getPosition'	: function(){
 

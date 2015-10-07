@@ -2,16 +2,23 @@ window.addEventListener( 'load' , init );
 
 function init(){
 
+	var ships = [];
+
 	var enemies = [];
 
 	var canvas = new createCanvas( 'juego' );
 
-	var bg = new background( canvas );
+	var bg = new background( canvas , bgloaded );
 
-	for(var i = 0 ; i < 10 ; i++ ){
+	function bgloaded(){
 
-		enemies.push( new enemy( canvas ,  i * 50 ) );
+		for(var i = 0 ; i < 10 ; i++ ){
+
+			enemies.push( new enemy( canvas ,  i * 50 ) );
+		}
+
+		ships.push( new ship( canvas , enemies ) );
+
+		var impact = new collisions( canvas , ships , enemies );
 	}
-
-	var ship1 = new ship( canvas , enemies );
 }
